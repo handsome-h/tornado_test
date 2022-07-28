@@ -5,7 +5,7 @@ import tornado.ioloop
 class IndexHandler(tornado.web.RequestHandler):
     """主路由处理类"""
 
-    def post(self):
+    def get(self):
         """对应http的get请求方式"""
         self.write("Hello Itcast!")
 

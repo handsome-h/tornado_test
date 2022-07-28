@@ -16,11 +16,17 @@ class IndexHandler(tornado.web.RequestHandler):
 
 
 if __name__ == "__main__":
+    # 从命令行读取配置
     tornado.options.parse_command_line()
-    print(tornado.options.options.itcast) # 输出多值选项
+    # 从配置文件读取
+    # tornado.options.parse_config_file("./config")
+
+    print(tornado.options.options.itcast)  # 输出多值选项
     app = tornado.web.Application([
         (r"/", IndexHandler),
     ])
+
     http_server = tornado.httpserver.HTTPServer(app)
     http_server.listen(tornado.options.options.port)
+
     tornado.ioloop.IOLoop.current().start()
